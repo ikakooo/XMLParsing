@@ -6,27 +6,28 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 
 object DataLoader {
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL_MOVIES)
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(SimpleXmlConverterFactory.create())
         .build()
     private val service = retrofit.create(APIService::class.java)
 
-    fun getRequestTopToday(
-        callback: FutureCallbackMoviesBridge
+    fun getRequestExchangeRates(
+        callback: FutureCallbackExchangeBridge
     ) {
-        val call = service.getPopular()
-        call.enqueue(object : Callback<String> {
-            override fun onFailure(call: Call<String>, t: Throwable) {
+        val call = service.getExchangeRates()
+        call.enqueue(object : Callback<ExchangeDataModel.Rss> {
+            override fun onFailure(call: Call<ExchangeDataModel.Rss>, t: Throwable) {
                 callback.onFailure(t.message.toString())
+                Log.d("topToday", t.message.toString())
             }
 
             override fun onResponse(
-                call: Call<String>,
-                response: Response<String>
+                call: Call<ExchangeDataModel.Rss>,
+                response: Response<ExchangeDataModel.Rss>
             ) {
                 response.body()?.let { callback.onResponse(it) }
                 Log.d("topToday", response.body().toString())
