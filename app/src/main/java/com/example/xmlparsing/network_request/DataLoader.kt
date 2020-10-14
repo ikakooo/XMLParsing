@@ -1,4 +1,6 @@
-package com.example.xmlparsing
+@file:Suppress("DEPRECATION")
+
+package com.example.xmlparsing.network_request
 
 import android.util.Log
 import com.example.xmlparsing.Constants.BASE_URL_MOVIES

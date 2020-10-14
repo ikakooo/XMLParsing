@@ -3,6 +3,7 @@ package com.example.xmlparsing.models
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
+
 @Root(name = "item", strict = false)
 data class Item constructor(
     @field:Element(name = "link")

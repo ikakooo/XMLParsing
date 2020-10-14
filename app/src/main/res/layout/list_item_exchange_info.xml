@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/image_overlay">
+    <TextView
+        android:id="@+id/lastBuildDate_text_view_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_gravity="end|top"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:layout_marginEnd="25dp"
+        tools:text="1.666664354444345345353434566" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/abbreviate_text_view_ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="30sp"
+                tools:text="GEO" />
+
+            <TextView
+                android:id="@+id/value_text_view_ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                tools:text="1.6666666" />
+            <TextView
+                android:id="@+id/changing_text_view_ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                tools:text="1.6666666" />
+
+
+
+            <ImageView
+                android:id="@+id/IMGLink_Img_view_ID"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="bottom"
+                android:contentDescription="@string/todo" />
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/CountryValue_Name_text_view_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10 არაბეთის გაერთიანებული საამიროების დირჰამი" />
+    </LinearLayout>
+
+</FrameLayout>

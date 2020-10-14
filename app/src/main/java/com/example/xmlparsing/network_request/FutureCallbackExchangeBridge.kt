@@ -1,4 +1,4 @@
-package com.example.xmlparsing
+package com.example.xmlparsing.network_request
 
 import com.example.xmlparsing.models.RssDataModel
 
