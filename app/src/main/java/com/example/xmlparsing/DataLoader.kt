@@ -2,6 +2,7 @@ package com.example.xmlparsing
 
 import android.util.Log
 import com.example.xmlparsing.Constants.BASE_URL_MOVIES
+import com.example.xmlparsing.models.RssDataModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,18 +20,18 @@ object DataLoader {
         callback: FutureCallbackExchangeBridge
     ) {
         val call = service.getExchangeRates()
-        call.enqueue(object : Callback<ExchangeDataModel.Rss> {
-            override fun onFailure(call: Call<ExchangeDataModel.Rss>, t: Throwable) {
+        call.enqueue(object : Callback<RssDataModel> {
+            override fun onFailure(call: Call<RssDataModel>, t: Throwable) {
                 callback.onFailure(t.message.toString())
-                Log.d("topToday", t.message.toString())
+                Log.d("topTodayonFailure", t.message.toString())
             }
 
             override fun onResponse(
-                call: Call<ExchangeDataModel.Rss>,
-                response: Response<ExchangeDataModel.Rss>
+                call: Call<RssDataModel>,
+                response: Response<RssDataModel>
             ) {
                 response.body()?.let { callback.onResponse(it) }
-                Log.d("topToday", response.body().toString())
+                Log.d("topTodayonResponse", response.body().toString())
             }
 
         })
