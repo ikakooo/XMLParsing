@@ -10,6 +10,7 @@ import com.example.xmlparsing.models.RssDataModel
 import com.example.xmlparsing.network_request.DataLoader
 import com.example.xmlparsing.network_request.FutureCallbackExchangeBridge
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
     private val exchangesTablesListOfRates = mutableListOf<Money>()
@@ -31,7 +32,15 @@ class MainActivity : AppCompatActivity() {
         exchangeRatesAdapter = ExchangeRatesAdapter(exchangeRatesList,exchangesTablesListOfRates)
         RecyclerViewID.adapter = exchangeRatesAdapter
         getDaTa()
-        exchangeRatesAdapter.notifyDataSetChanged()
+        Swipe_refresh.setOnRefreshListener {
+            exchangesTablesListOfRates.clear()
+            exchangeRatesList.clear()
+            getDaTa()
+
+            Swipe_refresh.isRefreshing =false
+           // exchangeRatesAdapter.notifyDataSetChanged()
+        }
+
 
 
     }
@@ -51,7 +60,10 @@ class MainActivity : AppCompatActivity() {
                     cDataConverter(cData)
                     //TextViewID.text = response.toString()
                     d("dsfdsdffsdf", cData)
-
+//                    repeat(exchangesTablesListOfRates.size){exchangeRatesAdapter.notifyItemInserted(it)
+//                        Thread.sleep(10)
+//                    }
+                    Thread.sleep(50)
                     exchangeRatesAdapter.notifyDataSetChanged()
                 }
 
