@@ -15,8 +15,8 @@ import kotlinx.coroutines.delay
 class MainActivity : AppCompatActivity() {
     private val exchangesTablesListOfRates = mutableListOf<Money>()
     private var exchangeRatesList = mutableListOf<Channel>()
-    private   lateinit var exchangeRatesAdapter: ExchangeRatesAdapter
-    private lateinit var cData:String
+    private lateinit var exchangeRatesAdapter: ExchangeRatesAdapter
+    private lateinit var cData: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,16 +29,15 @@ class MainActivity : AppCompatActivity() {
         RecyclerViewID.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         //RecyclerViewID.layoutManager = GridLayoutManager(this, 2)
-        exchangeRatesAdapter = ExchangeRatesAdapter(exchangeRatesList,exchangesTablesListOfRates)
+        exchangeRatesAdapter = ExchangeRatesAdapter(exchangeRatesList, exchangesTablesListOfRates)
         RecyclerViewID.adapter = exchangeRatesAdapter
         getDaTa()
         Swipe_refresh.setOnRefreshListener {
             exchangesTablesListOfRates.clear()
             exchangeRatesList.clear()
             getDaTa()
-            Swipe_refresh.isRefreshing =false
+            Swipe_refresh.isRefreshing = false
         }
-
 
 
     }

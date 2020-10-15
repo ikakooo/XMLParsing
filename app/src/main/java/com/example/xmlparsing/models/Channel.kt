@@ -35,5 +35,5 @@ data class Channel constructor(
     var webMaster: String?,
     @field:ElementList(entry = "item", inline = true)
     @param:ElementList(name = "item")
-    var item:  ArrayList<Item?>
+    var item: ArrayList<Item?>
 )

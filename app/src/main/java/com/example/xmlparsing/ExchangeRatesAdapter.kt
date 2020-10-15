@@ -11,7 +11,10 @@ import com.example.xmlparsing.models.Channel
 import com.example.xmlparsing.models.Money
 import kotlinx.android.synthetic.main.list_item_exchange_info.view.*
 
-class ExchangeRatesAdapter(private val list: MutableList<Channel>,private val exchangesTablesListOfRates: MutableList<Money>) :
+class ExchangeRatesAdapter(
+    private val list: MutableList<Channel>,
+    private val exchangesTablesListOfRates: MutableList<Money>
+) :
     RecyclerView.Adapter<ExchangeRatesAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = exchangesTablesListOfRates.size
@@ -35,7 +38,7 @@ class ExchangeRatesAdapter(private val list: MutableList<Channel>,private val ex
             itemView.abbreviate_text_view_ID.text = model.abbreviate
             itemView.value_text_view_ID.text = "${model.value} GEL"
             itemView.changing_text_view_ID.text = model.changing
-            itemView.lastBuildDate_text_view_ID.text =globalModel.lastBuildDate
+            itemView.lastBuildDate_text_view_ID.text = globalModel.lastBuildDate
             Glide.with(itemView.context).load(model.IMGLink)
                 .into(itemView.IMGLink_Img_view_ID)
 

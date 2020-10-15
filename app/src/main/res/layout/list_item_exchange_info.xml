@@ -6,16 +6,17 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:background="@drawable/image_overlay">
+
     <TextView
         android:id="@+id/lastBuildDate_text_view_ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_gravity="end|top"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="25dp"
+        android:maxLines="1"
         android:textColor="@color/colorAccent"
         android:textSize="12sp"
-        android:maxLines="1"
-        android:layout_marginEnd="25dp"
         tools:text="1.666664354444345345353434566" />
 
     <LinearLayout
@@ -47,6 +48,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp"
                 tools:text="1.6666666" />
+
             <TextView
                 android:id="@+id/changing_text_view_ID"
                 android:layout_width="wrap_content"
@@ -58,14 +60,12 @@
                 tools:text="1.6666666" />
 
 
-
             <ImageView
                 android:id="@+id/IMGLink_Img_view_ID"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_gravity="bottom"
                 android:contentDescription="@string/todo" />
-
 
 
         </LinearLayout>
