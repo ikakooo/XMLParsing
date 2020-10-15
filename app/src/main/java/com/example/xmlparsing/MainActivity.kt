@@ -15,8 +15,8 @@ import kotlinx.coroutines.delay
 class MainActivity : AppCompatActivity() {
     private val exchangesTablesListOfRates = mutableListOf<Money>()
     private var exchangeRatesList = mutableListOf<Channel>()
-    lateinit var exchangeRatesAdapter: ExchangeRatesAdapter
-    private var cData = "0"
+    private   lateinit var exchangeRatesAdapter: ExchangeRatesAdapter
+    private lateinit var cData:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,9 +36,7 @@ class MainActivity : AppCompatActivity() {
             exchangesTablesListOfRates.clear()
             exchangeRatesList.clear()
             getDaTa()
-
             Swipe_refresh.isRefreshing =false
-           // exchangeRatesAdapter.notifyDataSetChanged()
         }
 
 
@@ -50,26 +48,19 @@ class MainActivity : AppCompatActivity() {
             object : FutureCallbackExchangeBridge {
 
                 override fun onResponse(response: RssDataModel) {
-//                    allMoviesList.addAll( response.results.toMutableList())
-//                    allMoviesAdapter.notifyDataSetChanged()
                     d("dsfdfsdf", response.toString())
                     response.channel.toMutableList()[0]!!.let {
                         exchangeRatesList.add(it)
                     }
                     cData = response.channel[0]?.item?.get(0)?.description.toString()
                     cDataConverter(cData)
-                    //TextViewID.text = response.toString()
                     d("dsfdsdffsdf", cData)
-//                    repeat(exchangesTablesListOfRates.size){exchangeRatesAdapter.notifyItemInserted(it)
-//                        Thread.sleep(10)
-//                    }
                     Thread.sleep(50)
                     exchangeRatesAdapter.notifyDataSetChanged()
                 }
 
                 override fun onFailure(error: String) {
                     d("dsfdfsdf", error)
-                    // TextViewID.text = error
                 }
             }
         )
